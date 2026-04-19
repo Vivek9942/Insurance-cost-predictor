@@ -100,6 +100,7 @@ pip install -r requirements.txt
 ## 👤 Author
 
 Vivek Pandey
+
 B.Tech CSE (AI)
 
 ---
