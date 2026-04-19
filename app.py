@@ -1,15 +1,25 @@
 import streamlit as st
 import numpy as np
 import pickle
+import os
 
-# Load model & scaler
-model = pickle.load(open("model.pkl", "rb"))
-scaler = pickle.load(open("scaler.pkl", "rb"))
-
+# Set page config FIRST
 st.set_page_config(page_title="Insurance Cost Predictor", layout="centered")
 
-st.title("💰 Insurance Cost Prediction App")
+# Safe path handling
+BASE_DIR = os.path.dirname(__file__)
 
+model_path = os.path.join(BASE_DIR, "model.pkl")
+scaler_path = os.path.join(BASE_DIR, "scaler.pkl")
+
+# Load files safely
+with open(model_path, "rb") as f:
+    model = pickle.load(f)
+
+with open(scaler_path, "rb") as f:
+    scaler = pickle.load(f)
+
+st.title("💰 Insurance Cost Prediction App")
 st.write("Enter details to predict insurance cost")
 
 # -------- INPUTS --------
@@ -26,14 +36,10 @@ smoker = st.selectbox("Smoker", ["No", "Yes"])
 is_smoker = 1 if smoker == "Yes" else 0
 
 region = st.selectbox("Region", ["Northeast", "Northwest", "Southeast", "Southwest"])
-
 region_southeast = 1 if region == "Southeast" else 0
 
-# BMI category logic
-if bmi > 30:
-    bmi_category_obesity = 1
-else:
-    bmi_category_obesity = 0
+# BMI category
+bmi_category_obesity = 1 if bmi > 30 else 0
 
 # -------- SCALING --------
 input_data = np.array([[age, bmi, children]])
@@ -49,5 +55,4 @@ final_input = np.array([[age_s, is_female, bmi_s, children_s,
 # -------- PREDICTION --------
 if st.button("Predict"):
     prediction = model.predict(final_input)[0]
-
     st.success(f"💵 Estimated Insurance Cost: ₹ {round(prediction, 2)}")
