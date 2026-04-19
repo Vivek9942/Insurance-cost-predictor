@@ -1,91 +1,108 @@
-# 💰 Insurance Cost Predictor
+# 💰 Insurance Cost Prediction using Machine Learning
 
-A Machine Learning + Streamlit web application that predicts medical insurance charges based on user inputs like age, BMI, smoking status, and more.
+## 📌 Overview
 
----
+This project aims to predict **medical insurance costs** based on an individual’s personal and lifestyle attributes.
+It is a **regression problem** where the target variable is continuous (insurance charges).
 
-## 📌 Project Overview
+The goal is to help insurance companies and individuals estimate costs more accurately using data-driven insights.
 
-This project uses a complete **end-to-end Machine Learning pipeline**:
+## 🚀 Problem Statement
 
-* Data Cleaning & Preprocessing
-* Feature Engineering (BMI categories)
-* Statistical Feature Selection (Pearson & Chi-Square)
-* Model Training using Linear Regression
-* Deployment using Streamlit
+Insurance costs vary significantly depending on factors like age, BMI, smoking habits, and region.
+This project builds a machine learning model to **predict insurance charges** and understand key factors influencing cost.
 
----
+## 📊 Dataset
 
-## 🧠 Features
+* Source: Kaggle (Medical Cost Personal Dataset)
+* Features used:
 
-* Predict insurance charges instantly
-* Interactive UI with Streamlit
-* Real-world dataset
-* Clean and scalable ML pipeline
+  * Age
+  * Sex
+  * BMI
+  * Number of Children
+  * Smoker (Yes/No)
+  * Region
+* Target:
 
----
+  * Insurance Charges
 
-## 🛠️ Tech Stack
+## 🔍 Exploratory Data Analysis (EDA)
 
-* Python 
-* Pandas & NumPy
+* Analyzed distribution of insurance charges
+* Identified strong correlation between **smoking and high charges**
+* Checked relationship between BMI and cost
+* Visualized trends using histograms, scatter plots, and box plots
+
+## ⚙️ Data Preprocessing
+
+* Handled missing values (if any)
+* Encoded categorical variables using **One-Hot Encoding**
+* Feature scaling applied where necessary
+* Split dataset into training and testing sets
+
+## 🤖 Model Building
+
+The following regression models were trained and evaluated:
+
+* Linear Regression
+* Random Forest Regressor
+
+## 💡 Key Insights
+
+* Smoking is the **most significant factor** affecting insurance cost
+* Higher BMI tends to increase charges
+* Age has a positive correlation with cost
+
+## 🛠️ Technologies Used
+
+* Python
+* Pandas, NumPy
+* Matplotlib, Seaborn
 * Scikit-learn
-* Streamlit
 
----
+## 📦 Project Workflow
 
-## 📂 Project Structure
+1. Data Collection
+2. Data Cleaning & Preprocessing
+3. Exploratory Data Analysis
+4. Model Training
+5. Model Evaluation
+6. Prediction
 
+## 📸 Sample Output
+<img width="1081" height="850" alt="image" src="https://github.com/user-attachments/assets/04d2c848-8472-4025-a32d-ed6dcb9eb4c2" />
+
+
+## 🌐 Future Improvements
+
+* Deploy model using **Streamlit**
+* Use advanced models like XGBoost
+* Hyperparameter tuning for better accuracy
+
+## 📂 How to Run the Project
+
+```bash
+# Clone the repository
+git clone https://github.com/your-username/insurance-cost-predictor.git
+
+# Navigate to the project folder
+cd insurance-cost-predictor
+
+# Install dependencies
+pip install -r requirements.txt
+
+# Run the notebook or script
 ```
-insurance-cost-predictor/
-│
-├── app.py                # Streamlit app
-├── train_model.py        # Model training script
-├── insurance.csv         # Dataset
-├── model.pkl             # Trained model
-├── scaler.pkl            # Scaler
-├── README.md             # Project documentation
-```
 
 ---
 
-## 📊 Input Features
+## 👤 Author
 
-* Age
-* Gender
-* BMI
-* Number of Children
-* Smoking Status
-* Region
+Vivek Pandey
+B.Tech CSE (AI)
 
 ---
 
-## 📈 Model Details
+## ⭐ If you found this project useful, consider giving it a star!
 
-* Algorithm: Linear Regression
-* Feature Scaling: StandardScaler
-* Feature Selection: Pearson Correlation & Chi-Square Test
-
----
-
-## 🎯 Future Improvements
-
-* Add multiple ML models for comparison
-* Deploy app online (Streamlit Cloud)
-* Improve UI/UX
-* Add model evaluation metrics (R² score, MAE)
-
----
-
-## Author
-
-**Vivek Pandey**
-
-* 📧 [pandeyvivek9631@gmail.com](mailto:pandeyvivek9631@gmail.com)
-* 💼 Aspiring Software & ML Engineer
-
----
-
-## ⭐ If you like this project
-
-Give it a ⭐ on GitHub!
